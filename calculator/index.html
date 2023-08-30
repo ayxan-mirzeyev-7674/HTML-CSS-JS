@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="grid-item result">Res</div>
+            <button onclick="btnClicked('add')" data-action="add" class="grid-item operators">+</button>
+            <button onclick="btnClicked('subtract')" data-action="subtract" class="grid-item operators">-</button>
+            <button onclick="btnClicked('multipy')" data-action="multipy" class="grid-item operators">x</button>
+            <button onclick="btnClicked('divide')" data-action="divide" class="grid-item operators">/</button>
+            <button onclick="btnClicked('7')" class="grid-item">7</button>
+            <button onclick="btnClicked('8')" class="grid-item">8</button>
+            <button onclick="btnClicked('9')" class="grid-item">9</button>
+            <button onclick="btnClicked('4')" class="grid-item">4</button>
+            <button onclick="btnClicked('5')" class="grid-item">5</button>
+            <button onclick="btnClicked('6')" class="grid-item">6</button>
+            <button onclick="btnClicked('1')" class="grid-item">1</button>
+            <button onclick="btnClicked('2')" class="grid-item">2</button>
+            <button onclick="btnClicked('3')" class="grid-item">3</button>
+            <button onclick="btnClicked('0')" class="grid-item zero">0</button>
+            <button onclick="btnClicked('.')" class="grid-item">.</button>
+            <button onclick="btnClicked('=')" class="grid-item sumBtn">=</button>
+            <button onclick="btnClicked('C')" class="grid-item">C</button>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
