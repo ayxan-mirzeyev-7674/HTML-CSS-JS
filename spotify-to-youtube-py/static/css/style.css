@@ -2,3 +2,50 @@
     width: 64px;
     height: 64px;
 }
+body{
+    background-color: rgb(18,18,18);
+    font-family: 'CustomFont';
+    background: rgb(81,58,157);
+    background: linear-gradient(180deg, rgba(81,58,157,1) 0%, rgba(18,18,18,1) 1%);
+}
+.table{
+    color: #b3b3b3;
+    border: 0px;
+}
+@font-face {
+    font-family: "CustomFont";
+    src: url("CircularSpotifyText-Book.otf");
+    src:url("CircularSpotifyText-Book.otf") format("opentype");
+}
+.music-name{
+    color: white;
+}
+thead{
+    border-bottom: 2px solid gray;
+}
+.table td, .table th {
+    border-top: 0px;
+}
+.container-div{
+    width: 100%;
+    padding: 5px;
+
+}
+.btn-div{
+    display: flex;
+}
+.btn-success{
+    margin-left: 10px;
+}
+@media screen and (max-width: 660px) {
+    .artist-col{
+        display: none;
+    }
+}
+.table td,.id{
+    vertical-align: middle;
+}
+.id{
+    text-align: center;
+    vertical-align: middle ;
+}

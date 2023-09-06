@@ -9,7 +9,8 @@ requires = [
     'beautifulsoup4',
     'youtube_dl',
     'pathlib',
-    'pandas'
+    'pandas',
+    'youtube-search-python'
 ]
 
 setup(

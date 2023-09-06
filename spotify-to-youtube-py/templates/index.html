@@ -18,24 +18,28 @@
         crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="../static/css/style.css">
+
     <title>Your List</title>
 </head>
 
 <body>
-    <table class="table table-striped table-dark">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Cover</th>
-                <th scope="col">Music Name</th>
-                <th scope="col">Artist</th>
-                <th scope="col">Links</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{inner | safe}}
-        </tbody>
-    </table>
+    <div class="container-div">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="text-align: center;" scope="col">#</th>
+                    <th scope="col">Cover</th>
+                    <th scope="col">Music Name</th>
+                    <th class="artist-col" scope="col">Artist</th>
+                    <th scope="col">Links</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{inner | safe}}
+            </tbody>
+        </table>
+    </div>
+
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -48,8 +52,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <iframe id="singleButtonApi" src="https://api.vevioz.com/apis/single/mp3?url=https://www.youtube.com/watch?v=mYHPnqa7B3Y"
-width="100%" height="100%" allowtransparency="true" scrolling="no" style="border:none"></iframe>
+                    <iframe id="singleButtonApi"
+                        src="https://api.vevioz.com/apis/single/mp3?url=https://www.youtube.com/watch?v=mYHPnqa7B3Y"
+                        width="100%" height="100%" allowtransparency="true" scrolling="no" style="border:none"></iframe>
                 </div>
             </div>
         </div>
@@ -77,8 +82,8 @@ width="100%" height="100%" allowtransparency="true" scrolling="no" style="border
 
             });
         });
-        function showModal(url){
-            iframe.setAttribute("src", "https://api.vevioz.com/apis/single/mp3?url="+url)
+        function showModal(url) {
+            iframe.setAttribute("src", "https://api.vevioz.com/apis/single/mp3?url=" + url)
             $('#myModal').modal('show');
         }
         /*$(function() {
