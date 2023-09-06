@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <div id = "upper" class="upper">
+            <div class="question">
+                Which language runs in a web browser?
+            </div>
+            <div class="variants">
+                <ol>
+                    <li>
+                        <input id="a" type="radio" name="variant" value="Variant 1">
+                        <label for="a">Variant 1</label>
+                    </li>
+                    <li>
+                        <input id="b" type="radio" name="variant" value="Variant 2">
+                        <label for="b">Variant 2</label>
+                    </li>
+                    <li>
+                        <input id="c" type="radio" name="variant" value="Variant 3">
+                        <label for="c">Variant 3</label>
+                    </li>
+                    <li>
+                        <input id="d" type="radio" name="variant" value="Variant 4">
+                        <label for="d">Variant 4</label>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="lower">
+            <button id="submit" onclick="btnClicked()">Submit</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
