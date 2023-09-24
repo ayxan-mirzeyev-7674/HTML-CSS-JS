@@ -7,3 +7,4 @@ beautifulsoup4
 youtube_dl
 pathlib
 pandas
+youtube-search-python
