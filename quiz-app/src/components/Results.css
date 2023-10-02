@@ -1,0 +1,28 @@
+.box{
+    max-width: 600px;
+    background-color: white;
+    display: flex;
+    padding: 20px;
+}
+.ques{
+    width: 40%;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+.res-variants{
+    width: 60%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+}
+.res-variant{
+    width: 100%;
+    padding-left: 10px;
+    margin: 0 !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+
+}
