@@ -9,14 +9,6 @@ function Quiz() {
   const location = useLocation();
   const questions = JSON.parse(location.state.questions);
 
-  useEffect(() => {
-    console.log(
-      questions.map((item) => {
-        return atob(item.question);
-      })
-    );
-  }, []);
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
   const [currentVariant, setCurrentVariant] = useState(null);

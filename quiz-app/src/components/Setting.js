@@ -43,7 +43,7 @@ function Setting(props) {
 
     
   return (
-    <div className="main">
+    <div style={{top: "50%", transform : "translate(-50%,-50%)"}} className="main">
       <Form onSubmit={submit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Number of Questions</Form.Label>
