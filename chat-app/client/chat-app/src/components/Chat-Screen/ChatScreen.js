@@ -35,6 +35,7 @@ function ChatScreen({ data }) {
 
   useEffect(() => {
     scrollToBottom();
+    console.log(data)
   }, [data]);
 
   return (
@@ -42,6 +43,7 @@ function ChatScreen({ data }) {
       <div className={styles.topBar}>
         <div className={styles.userImageDiv}>
           <img alt="" className={styles.userImage} src={ProfilePicture} />
+          {data.online && <div className={styles.online}></div>}
         </div>
         <div className={styles.userTextDiv}>
           <p className={styles.userText}>{data.user?.username}</p>

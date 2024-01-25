@@ -24,12 +24,27 @@ const getUser = (userId) => {
 io.on("connection", (socket) => {
   socket.on("newUser", (userId) => {
     addNewUser(userId, socket.id);
+    for (const user of onlineUsers) {
+      io.to(user.socketId).emit("newUser", onlineUsers);
+    }
     console.log(onlineUsers);
+  });
+
+  socket.on("logOut", (userId) => {
+    const reciever = getUser(userId)
+    removeUser(reciever.socketId);
+    console.log(reciever, onlineUsers)
+    for (const user of onlineUsers) {
+      io.to(user.socketId).emit("newUser", onlineUsers);
+    }
   });
 
   socket.on("disconnect", () => {
     removeUser(socket.id);
     console.log(onlineUsers);
+    for (const user of onlineUsers) {
+      io.to(user.socketId).emit("newUser", onlineUsers);
+    }
   });
 
   socket.on("sendMessage", ({userId, chatId}) => {

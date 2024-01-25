@@ -168,3 +168,24 @@
         border-radius: 0;
     }
 }
+
+@media only screen and (max-width: 560px) {
+    .main{
+        flex-direction: column;
+    }
+    .users{
+        width: 100%;
+        height: 400px;
+        max-width: 100%;
+        position: relative;
+        padding-top: 59px;
+    }
+    .currentUserDiv{
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+    .chat{
+        width: 100%;
+    }
+}

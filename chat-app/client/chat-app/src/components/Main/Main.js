@@ -17,6 +17,7 @@ function Main() {
   const [selectedChat, setSelectedChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [socket, setSocket] = useState(null);
+  const [onlineUsers, setOnlineUsers] = useState([]);
   const [refresh, setRefresh] = useState(0)
 
   const USERS_API_URL = "http://192.168.31.94:4000/get_users";
@@ -134,8 +135,13 @@ function Main() {
       refreshChats();
       setRefresh((prev) => (prev + 1))
     });
+    users && socket?.on("newUser", (onlineUsers) => {
+      console.log(onlineUsers)
+      setOnlineUsers(onlineUsers);
+    })
     return () => {
       socket?.off("newMessage");
+      socket?.off("newUser");
     };
   }, [socket, selectedChat, chats]);
 
@@ -147,6 +153,7 @@ function Main() {
 
   const logOut = () => {
     localStorage.clear();
+    socket.emit("logOut", loggedUser.id);
     navigate("/login");
   };
 
@@ -190,6 +197,7 @@ function Main() {
         console.error(err);
       });
   };
+
 
   return (
     <div className={styles.body}>
@@ -275,6 +283,7 @@ function Main() {
                     user.id ===
                     chats.find((chat) => chat.id === selectedChat.id).userId
                 ),
+                online : onlineUsers.some((user) => user.userId === selectedChat.userId), 
                 messages: messages,
                 onSend: sendMessage,
               }}

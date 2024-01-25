@@ -10,6 +10,7 @@
     justify-content: center;
     width: 65px;
     height: 59px;
+    position: relative;
 }
 
 .userImage{
@@ -77,4 +78,15 @@
 }
 .messageInput:focus{
     outline: 0;
+}
+.online{
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: rgb(96,202,31);
+    right: 15px;
+    bottom: 15px;
+    border: 2px solid white;
+    box-sizing: border-box;
 }
