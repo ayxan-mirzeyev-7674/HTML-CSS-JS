@@ -1,11 +1,11 @@
-import './App.css';
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Main from "./components/Main/Main";
 import NoPage from "./components/NoPage";
 //import { io } from "socket.io-client";
-//import { useEffect } from 'react';
+import { useEffect } from "react";
 
 function App() {
   /*useEffect(() => {
@@ -13,12 +13,15 @@ function App() {
     socket.on("first", (ms) => {console.log(ms)})
 
   }, [])*/
+  useEffect(() => {
+    document.title = "UNITAZ Whatsapp";
+  }, []);
 
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route path ="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/chat" element={<Main />} />
           <Route path="*" element={<NoPage />} />

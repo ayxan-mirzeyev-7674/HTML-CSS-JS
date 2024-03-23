@@ -8,7 +8,7 @@ function Register() {
   const [input, setInput] = useState({ username: "", password: "" });
   const [active, setActive] = useState(false);
   const [error, setError] = useState(null);
-  const [succesText, setSuccesText] = useState("Create an account"); 
+  const [succesText, setSuccesText] = useState("Create an account");
   const [butColor, setButColor] = useState("primary");
 
   const navigate = useNavigate();
@@ -28,28 +28,28 @@ function Register() {
   const submit = (e) => {
     e.preventDefault();
     if (input.username && input.password) {
-        fetch(API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(input)
+      fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(input),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.status) {
+            setSuccesText("Redirecting to login page.");
+            setButColor("success");
+            setTimeout(() => {
+              navigate("/login");
+            }, 2000);
+          } else {
+            setError(result.error);
+            console.log("Error" + result.error);
+          }
         })
-        .then(response => response.json())
-        .then(result => {
-            if (result.status){
-                setSuccesText("Redirecting to login page.")
-                setButColor("success")
-                setTimeout(() => {
-                    navigate("/login");
-                }, 2000);
-            }else{
-                setError(result.error)
-                console.log("Error" + result.error)
-            }
-        })
-        .catch(err => {
-            setError(err)
+        .catch((err) => {
+          setError(err);
         });
     }
   };
@@ -58,7 +58,7 @@ function Register() {
     <div className={styles.body}>
       <div className={styles.main}>
         <p className={styles.header}>Register</p>
-        <Form style={{width: "100%"}} onSubmit={submit}>
+        <Form style={{ width: "100%" }} onSubmit={submit}>
           <Form.Group className="mb-3" controlId="username">
             <Form.Label>Username</Form.Label>
             <Form.Control
@@ -79,7 +79,7 @@ function Register() {
               placeholder="Enter password"
             />
           </Form.Group>
-          <p style={{color:"#dc3545"}}>{error}</p>
+          <p style={{ color: "#dc3545" }}>{error}</p>
           <Button
             disabled={!active}
             className={styles.submit}
@@ -88,9 +88,8 @@ function Register() {
           >
             {succesText}
           </Button>
-          <p style={{ marginTop: "10px", textAlign: "center"}}>
-            Have an account?{" "}
-            <a href={"../login"}>Login</a>.
+          <p style={{ marginTop: "10px", textAlign: "center" }}>
+            Have an account? <a href={"../login"}>Login</a>.
           </p>
         </Form>
       </div>

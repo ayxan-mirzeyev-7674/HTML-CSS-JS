@@ -35,12 +35,14 @@ function Login() {
         })
         .then((data) => {
           if (data.status) {
-            console.log("Successfull" + data.id)
-            const token = JSON.stringify({id : data.id, username: input.username});
+            console.log("Successfull" + data.id);
+            const token = JSON.stringify({
+              id: data.id,
+              username: input.username,
+            });
             localStorage.setItem("token", token);
-            console.log('Generated Token:', token);
+            console.log("Generated Token:", token);
             navigate("/chat");
-
           } else {
             setError(data.error);
             console.log("Error:", data.error);
@@ -57,7 +59,7 @@ function Login() {
     <div className={styles.body}>
       <div className={styles.main}>
         <p className={styles.header}>Login</p>
-        <Form style={{width : "100%"}} onSubmit={submit}>
+        <Form style={{ width: "100%" }} onSubmit={submit}>
           <Form.Group className="mb-3" controlId="username">
             <Form.Label>Username</Form.Label>
             <Form.Control
@@ -78,7 +80,7 @@ function Login() {
               placeholder="Enter password"
             />
           </Form.Group>
-          <p style={{color:"#dc3545"}}>{error}</p>
+          <p style={{ color: "#dc3545" }}>{error}</p>
           <Button
             disabled={!active}
             className={styles.submit}
@@ -87,9 +89,8 @@ function Login() {
           >
             Login
           </Button>
-          <p style={{ marginTop: "10px" , textAlign: "center"}}>
-            Don't have an account?{" "}
-            <a href={"../register"}>Register</a>.
+          <p style={{ marginTop: "10px", textAlign: "center" }}>
+            Don't have an account? <a href={"../register"}>Register</a>.
           </p>
         </Form>
       </div>

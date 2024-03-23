@@ -1,7 +1,9 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import pymysql
 from datetime import datetime
+from werkzeug.utils import secure_filename
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -10,6 +12,14 @@ app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'chat-app'
+
+UPLOAD_FOLDER = '/Users/ayxanmirzayev/Documents/GitHub/HTML-CSS-JS/chat-app/server/images'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def get_conn():
     mysql = pymysql.connect(
@@ -234,6 +244,47 @@ def get_messages():
     formatted_messages = [{'id': message[0], 'chat_id': message[1], "sender_id" : message[2], "content": message[3], "timestamp": message[4] } for message in messages] 
 
     return jsonify(formatted_messages)
+
+def deleteFile(filename):
+    if os.path.exists(filename):
+        os.remove(filename)
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    try:
+        file = request.files['file']
+        user_id = request.form['userId']
+
+        if not file:
+            return jsonify({'error': 'No file part'})
+
+        if file.filename == '' or not allowed_file(file.filename):
+            return jsonify({'error': 'Invalid file'})
+        
+
+        filename = secure_filename(user_id + "." + file.filename.split(".")[1])
+
+        for i in ALLOWED_EXTENSIONS:
+            deleteFile(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(user_id + "." + i)))
+
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+        return jsonify({'success': 'File uploaded successfully'})
+    except Exception as e:
+        print(str(e))
+        return jsonify({'error': 'Internal server error'})
+
+@app.route('/get_image/<user_id>', methods=['GET'])
+def get_user_image(user_id):
+    for i in ALLOWED_EXTENSIONS:
+        filename = secure_filename(user_id + "." + i)
+        if os.path.exists(os.path.join(app.config['UPLOAD_FOLDER'], filename)):
+            return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    else:
+        return jsonify({'error': 'Image not found'})
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 @app.before_request
 def before_request():

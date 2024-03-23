@@ -8,7 +8,7 @@
   background-color: rgb(0, 92, 75);
   padding: 9px 6px 7px 8px;
   max-width: 85%;
-  color: rgb(233,237,239);
+  color: rgb(233, 237, 239);
   font-size: 14.2px;
   position: relative;
   border-radius: 7.5px 0 7.5px 7.5px;
@@ -21,12 +21,12 @@
   justify-content: flex-end;
 }
 
-.gap{
+.gap {
   width: 34.11px;
   height: 19px;
 }
 
-.dateMain{
+.dateMain {
   display: inline-block;
   padding: 0 0 0 7px;
   position: relative;
@@ -34,10 +34,10 @@
   float: right;
 }
 
-.date{
+.date {
   display: inline-block;
   width: 34px;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 11px;
   bottom: 0px;
   right: 5px;
@@ -60,7 +60,7 @@
   background-color: rgb(32, 44, 51);
   padding: 9px 6px 7px 8px;
   max-width: 85%;
-  color: rgb(233,237,239);
+  color: rgb(233, 237, 239);
   font-size: 14.2px;
   position: relative;
   border-radius: 0 7.5px 7.5px 7.5px;

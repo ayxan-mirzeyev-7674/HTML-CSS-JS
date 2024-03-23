@@ -27,22 +27,36 @@ function ChatScreen({ data }) {
   };
 
   const date = (timestamp) => {
-      const hours = new Date(timestamp).getUTCHours().toString();
-      let minutes = new Date(timestamp).getMinutes().toString();
-     if (minutes.length === 1) { minutes = "0" + minutes}
-      return ( hours + ":" + minutes)
+    const hours = new Date(timestamp).getUTCHours().toString();
+    let minutes = new Date(timestamp).getMinutes().toString();
+    if (minutes.length === 1) {
+      minutes = "0" + minutes;
+    }
+    return hours + ":" + minutes;
   };
 
   useEffect(() => {
     scrollToBottom();
-    console.log(data)
+    console.log(data);
   }, [data]);
 
   return (
     <div className={styles.main}>
       <div className={styles.topBar}>
         <div className={styles.userImageDiv}>
-          <img alt="" className={styles.userImage} src={ProfilePicture} />
+          <img
+            alt=""
+            className={styles.userImage}
+            src={data.PP}
+            onLoadStart={(e) => {
+              e.target.src = ProfilePicture;
+            }}
+            onError={(e) => {
+              e.target.src = ProfilePicture;
+              e.target.style.width = "40px";
+              e.target.style.height = "40px";
+            }}
+          />
           {data.online && <div className={styles.online}></div>}
         </div>
         <div className={styles.userTextDiv}>
@@ -55,7 +69,7 @@ function ChatScreen({ data }) {
             key={message.id}
             data={{
               message: message.content,
-              date: date(message.timestamp) ,
+              date: date(message.timestamp),
               sent: !(message.sender_id === data.user?.id),
             }}
           />

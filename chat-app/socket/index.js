@@ -1,8 +1,10 @@
 import { Server } from "socket.io";
 
+const IP = "http://192.168.31.94:3000";
+
 const io = new Server({
   cors: {
-    origin: "http://192.168.31.94:3000",
+    origin: IP,
   },
 });
 
@@ -31,9 +33,9 @@ io.on("connection", (socket) => {
   });
 
   socket.on("logOut", (userId) => {
-    const reciever = getUser(userId)
+    const reciever = getUser(userId);
     removeUser(reciever.socketId);
-    console.log(reciever, onlineUsers)
+    console.log(reciever, onlineUsers);
     for (const user of onlineUsers) {
       io.to(user.socketId).emit("newUser", onlineUsers);
     }
@@ -47,15 +49,14 @@ io.on("connection", (socket) => {
     }
   });
 
-  socket.on("sendMessage", ({userId, chatId}) => {
-    console.log(userId)
-    const reciever = getUser(userId)
+  socket.on("sendMessage", ({ userId, chatId }) => {
+    console.log(userId);
+    const reciever = getUser(userId);
     console.log(reciever);
-    if (reciever){
-        io.to(reciever.socketId).emit("newMessage", chatId)
+    if (reciever) {
+      io.to(reciever.socketId).emit("newMessage", chatId);
     }
-
-  })
+  });
 });
 
 io.listen(8000);
