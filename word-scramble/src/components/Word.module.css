@@ -1,0 +1,83 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.definition {
+  color: white;
+  font-size: 28px;
+  max-width: 600px;
+  font-weight: 500;
+  display: inline;
+  text-align: center;
+}
+
+.definitionSpan {
+  background: #1d2956;
+  box-shadow: 1.5vh 0 0 0 #1d2956, -1.5vh 0 0 0 #1d2956;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  line-height: 1.3;
+}
+
+.letterBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  margin: 3.5px;
+  background-color: white;
+  color: #1d2956;
+  border: 3.5px solid white;
+  border-radius: min(1vh, 7px);
+  font-size: min(4.5vh, 31.5px);
+  font-weight: bold;
+  padding: 0;
+  cursor: pointer;
+}
+
+.letterBox:disabled {
+  background-color: transparent;
+  border: 0;
+  cursor: auto;
+}
+
+.wrLetterBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  margin: 3.5px;
+  color: #1d2956;
+  border-radius: min(1vh, 7px);
+  border: 3.5px dashed white;
+  font-size: min(4.5vh, 31.5px);
+  font-weight: bold;
+  background-color: transparent;
+  padding: 0;
+}
+
+.selectedLetterBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  margin: 3.5px;
+  color: #1d2956;
+  border-radius: min(1vh, 7px);
+  border: 3.5px dashed white;
+  font-size: min(4.5vh, 31.5px);
+  font-weight: bold;
+  background-color: #8e72fb;
+  padding: 0;
+}
+
+.letterDiv {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,125 @@
+.body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-repeat: inherit;
+  background-position: center;
+  background-color: rgb(8, 94, 251);
+}
+
+.main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px 30px 30px 30px;
+  border-radius: 10px;
+  background-color: white;
+  width: 294px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.createButton {
+  outline: 5px solid #002043;
+  padding: 5px 0;
+  width: 210px;
+  border-radius: 34px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: rgb(254, 191, 0);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: black;
+  border: 0;
+  border-top: 2px solid #ffe100;
+  border-bottom: 2px solid #f88700;
+}
+
+.joinButton {
+  outline: 5px solid #002043;
+  padding: 5px 0;
+  width: 210px;
+  border-radius: 34px;
+  margin-bottom: 10px;
+  background-color: rgb(20, 186, 254);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: black;
+  border: 0;
+  border-top: 2px solid #66cfff;
+  border-bottom: 2px solid #248aed;
+}
+
+.changeImageDiv {
+  position: absolute;
+  top: -60px;
+}
+
+.pp {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid white;
+  outline: 3px solid #002043;
+}
+.edit {
+  width: 20px;
+}
+.innerDiv {
+  position: relative;
+}
+.editDiv {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background-color: #0a5efb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hiddenradio [type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+.hiddenradio [type="radio"] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+.hiddenradio [type="radio"]:checked + img {
+  outline: 3px solid rgb(255, 170, 0);
+}
+
+.hiddenradio {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.eachAvatarDiv {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.editAvatar {
+  width: 75px;
+  border-radius: 50%;
+  border: 4px solid white;
+  outline: 3px solid #002043;
+}

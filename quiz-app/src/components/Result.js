@@ -8,23 +8,35 @@ function Result(props) {
       <div className="box">
         <div className="ques">{data.question}</div>
         <div className="res-variants">
-          {data.answer == data.correct_answer ? (
-            data.variants.map((item) => {
-              return (
-                <Alert className="res-variant" variant={item == data.correct_answer ? "success" : "secondary"}>
-                  {item}
-                </Alert>
-              );
-            })
-          ) : (
-            data.variants.map((item) => {
-              return (
-                <Alert className="res-variant" variant={item == data.correct_answer ? "success" : item == data.answer ? "danger" : "secondary"}>
-                  {item}
-                </Alert>
-              );
-            })
-          )}
+          {data.answer === data.correct_answer
+            ? data.variants.map((item) => {
+                return (
+                  <Alert
+                    className="res-variant"
+                    variant={
+                      item === data.correct_answer ? "success" : "secondary"
+                    }
+                  >
+                    {item}
+                  </Alert>
+                );
+              })
+            : data.variants.map((item) => {
+                return (
+                  <Alert
+                    className="res-variant"
+                    variant={
+                      item === data.correct_answer
+                        ? "success"
+                        : item === data.answer
+                        ? "danger"
+                        : "secondary"
+                    }
+                  >
+                    {item}
+                  </Alert>
+                );
+              })}
         </div>
       </div>
     </>
