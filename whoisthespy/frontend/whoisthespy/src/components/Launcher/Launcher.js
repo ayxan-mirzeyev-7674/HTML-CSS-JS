@@ -2,10 +2,57 @@ import styles from "./Launcher.module.css";
 import Background from "./images/background.webp";
 import EditIcon from "./images/edit.svg";
 import Form from "react-bootstrap/Form";
-import images from "/Users/ayxanmirzayev/Documents/GitHub/HTML-CSS-JS/whoisthespy/frontend/whoisthespy/src/iconpack";
-import { useState } from "react";
+import images from "../../Iconpack";
+import { useContext, useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
+import { SocketContext } from "../context";
+
+function JoinRoomModal(props) {
+  const [roomId, setRoomId] = useState(null);
+  return (
+    <Modal
+      show={props.show}
+      onHide={props.onHide}
+      aria-labelledby="contained-modal-title-vcenter"
+      dialogClassName="modal-320w"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Join a room
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Label>Room ID:</Form.Label>
+          <Form.Control
+            onInput={(e) => {
+              setRoomId(e.target.value);
+            }}
+            type="text"
+            placeholder=""
+          />
+        </Form.Group>
+      </Modal.Body>
+      <Modal.Footer
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <button
+          className={styles.createButton}
+          onClick={() => {
+            props.onConfirm(roomId);
+          }}
+        >
+          Confirm
+        </button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
 function ChangeProfileModal(props) {
   const [selectedImage, setSelectedImage] = useState(props.selectedone);
@@ -34,7 +81,7 @@ function ChangeProfileModal(props) {
                   value="small"
                   checked={i === selectedImage}
                 />
-                <img className={styles.editAvatar} src={image} />
+                <img alt="Avatar" className={styles.editAvatar} src={image} />
               </label>
             </div>
           ))}
@@ -63,10 +110,46 @@ function Launcher() {
   const [selectedImage, setSelectedImage] = useState(0);
   const [username, setUsername] = useState(null);
   const [modalShow, setModalShow] = useState(false);
+  const [joinModalShow, setJoinModalShow] = useState(false);
+
+  const navigate = useNavigate();
+
+  const socket = useContext(SocketContext);
+
+  useEffect(() => {
+    socket.emit("removeFromRooms");
+  }, [socket]);
+
+  const connectToRoom = (roomId) => {
+    navigate("/game", {
+      replace: false,
+      state: { roomId, username, avatar: selectedImage },
+    });
+  };
 
   const createRoom = () => {
     if (username !== "" && username) {
-      console.log({ username: username, avatar: selectedImage });
+      const user = { username: username, avatar: selectedImage };
+      socket.emit("createRoom", user);
+      socket.on("roomCreated", (roomId) => {
+        console.log(roomId);
+        connectToRoom(roomId);
+      });
+    }
+  };
+
+  const joinRoom = (joinRoomId) => {
+    if (username !== "" && username && joinRoomId !== "" && joinRoomId) {
+      console.log(joinRoomId);
+      const user = { username: username, avatar: selectedImage };
+      socket.emit("joinRoom", user, joinRoomId, (response) => {
+        console.log(response);
+        if (response.found) {
+          connectToRoom(joinRoomId);
+        } else {
+          console.log("Room not found.");
+        } // ok
+      });
     }
   };
 
@@ -106,7 +189,14 @@ function Launcher() {
         <button onClick={createRoom} className={styles.createButton}>
           Create a Room
         </button>
-        <button className={styles.joinButton}>Join a room</button>
+        <button
+          onClick={() => {
+            setJoinModalShow(true);
+          }}
+          className={styles.joinButton}
+        >
+          Join a room
+        </button>
       </div>
       <ChangeProfileModal
         show={modalShow}
@@ -116,6 +206,13 @@ function Launcher() {
           console.log(selectedImage);
         }}
         selectedone={selectedImage}
+      />
+      <JoinRoomModal
+        show={joinModalShow}
+        onHide={() => {
+          setJoinModalShow(false);
+        }}
+        onConfirm={(joinRoomId) => joinRoom(joinRoomId)}
       />
     </div>
   );

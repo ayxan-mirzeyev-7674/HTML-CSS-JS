@@ -1,0 +1,57 @@
+.membersContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.main {
+  width: 50%;
+  border-bottom: 1px solid grey;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.innerDiv {
+  display: flex;
+  align-items: center;
+  background-color: rgb(13, 118, 246);
+  padding: 5px;
+  width: 100%;
+  border-radius: 35px;
+}
+
+.hostDiv {
+  background-color: white;
+  text-align: center;
+  border-radius: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  width: 50px;
+}
+
+.crownIcon {
+  margin-right: 3px;
+}
+
+.avatar {
+  width: 55px;
+  border-radius: 50%;
+  border: 2px solid #002043;
+}
+
+.emptyAvatar {
+  width: 55px;
+  border-radius: 50%;
+}
+
+.textDiv {
+  margin-left: 10px;
+  width: 100%;
+}
+
+.textDiv > p {
+  margin: 0;
+  color: #e8e2ff;
+  font-weight: 800;
+  font-size: 14px;
+}
