@@ -1,0 +1,40 @@
+.container {
+  width: 400px;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  padding-top: 60px;
+}
+
+img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+.card-number {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 33px;
+}
+
+.owner {
+  font-family: monospace;
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.valid-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+.date {
+  font-family: Tahoma;
+  font-size: 22px;
+  font-weight: 100;
+}

@@ -1,0 +1,51 @@
+h1 {
+  font-size: 20px;
+}
+
+h1,
+h2 {
+  color: orangered;
+}
+
+p {
+  font-style: italic;
+}
+
+li {
+  color: gray;
+}
+
+button {
+  background-color: rgb(221, 131, 62);
+  color: #fff;
+  border: 0;
+  width: 200px;
+  font-size: 20px;
+  height: 50px;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+button::before {
+  content: "READY";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  background-color: red;
+  width: 0;
+  height: 100%;
+  transition: 0.2s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+button:hover::before {
+  left: 0;
+}

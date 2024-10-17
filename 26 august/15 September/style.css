@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  margin: 0;
+  gap: 50px;
+}
+
+.div1 {
+  width: 50%;
+  background-color: teal;
+  text-align: right;
+  text-transform: lowercase;
+  letter-spacing: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.div2 {
+  width: 50%;
+  background-color: orange;
+}

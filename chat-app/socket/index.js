@@ -1,6 +1,6 @@
 import { Server } from "socket.io";
 
-const IP = "http://192.168.31.94:3000";
+const IP = "http://192.168.52.191:3000";
 
 const io = new Server({
   cors: {

@@ -1,0 +1,42 @@
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+h1 {
+  font-weight: 900;
+  color: rgb(16, 0, 148);
+}
+
+.infoUl {
+  padding: 0;
+  color: rgb(69, 148, 148);
+}
+
+.infoUl b {
+  font-weight: 900;
+}
+
+p,
+ul {
+  color: rgb(69, 148, 148);
+}
+
+.avaibleP {
+  color: rgb(16, 0, 148);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.ibm {
+  font-family: "Montserrat", sans-serif;
+  color: #2222ff;
+}
+
+.secondTask {
+  color: #000;
+  font-weight: 700;
+}
+
+ul.firstclass {
+  background-color: #000;
+}

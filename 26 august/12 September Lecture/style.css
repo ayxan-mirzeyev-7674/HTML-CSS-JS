@@ -1,0 +1,17 @@
+body > div {
+  width: 300px;
+  background-color: rgb(0, 0, 0, 0.3);
+}
+
+p:first-child {
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 25px;
+  background-color: yellow;
+}
+
+div {
+  font-size: 17px;
+}

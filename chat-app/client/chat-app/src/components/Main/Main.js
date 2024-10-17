@@ -29,8 +29,8 @@ function Main() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [ppMessage, setPPMessage] = useState("");
 
-  const IP = "http://192.168.31.94:4000";
-  const socketIP = "http://192.168.31.94:8000";
+  const IP = "http://192.168.52.191:4000";
+  const socketIP = "http://192.168.52.191:8000";
 
   const USERS_API_URL = IP + "/get_users";
   const CREATE_CHAT_API_URL = IP + "/create_chat";

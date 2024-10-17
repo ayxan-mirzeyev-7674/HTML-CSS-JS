@@ -11,7 +11,7 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const API_URL = "http://192.168.31.94:4000/login?";
+  const API_URL = "http://192.168.52.191:4000/login?";
 
   useEffect(() => {
     if (input) {

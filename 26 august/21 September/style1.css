@@ -1,0 +1,81 @@
+.container {
+  width: 400px;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 10px;
+  padding: 30px 20px 20px;
+}
+
+.top img:nth-child(1) {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100px;
+}
+
+.top img:nth-child(2) {
+  height: 70px;
+  width: auto;
+  align-self: flex-start;
+}
+
+p {
+  margin: 0;
+}
+
+.card-number {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 33px;
+}
+
+.owner {
+  font-family: monospace;
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.valid-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+.date {
+  font-family: Tahoma;
+  font-size: 22px;
+  font-weight: 100;
+}
+
+.main-container {
+  width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer img {
+  width: 130px;
+}
+
+.main-container > div:nth-child(2) {
+  background-color: black;
+}
+
+.main-container > div:nth-child(3) {
+  background-color: green;
+}
+
+.main-container > div:nth-child(4) {
+  background-color: blue;
+}

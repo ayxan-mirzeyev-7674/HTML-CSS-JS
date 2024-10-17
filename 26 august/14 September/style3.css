@@ -1,0 +1,17 @@
+body {
+  font-family: "Nunito";
+  color: rgb(40, 87, 87);
+}
+
+h1 {
+  font-weight: 900;
+  background-color: yellow;
+}
+
+.first {
+  font-style: italic;
+}
+
+.main-list > li {
+  font-weight: 700;
+}

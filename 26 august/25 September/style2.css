@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap");
+
+.main {
+  display: inline-flex;
+  list-style: none;
+  gap: 30px;
+  font-family: "Geologica", sans-serif;
+  border: 1px solid #ccc;
+  padding: 20px 30px;
+  border-radius: 8px;
+}
+
+.main div {
+  padding: 20px 30px;
+  background-color: purple;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s linear;
+}
+
+.main div:hover {
+  bottom: 5px;
+}
+
+.main:hover div:not(:hover) {
+  background-color: rgba(128, 0, 128, 0.5);
+}

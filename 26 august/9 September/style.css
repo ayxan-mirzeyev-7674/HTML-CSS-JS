@@ -1,0 +1,21 @@
+.title {
+  font-size: 26px;
+  color: blue;
+}
+
+.product-info {
+  color: darkgrey;
+}
+.info {
+  font-style: italic;
+}
+.date {
+  font-size: 11px;
+}
+
+table,
+td,
+th {
+  border: 1px solid black;
+  border-collapse: separate;
+}

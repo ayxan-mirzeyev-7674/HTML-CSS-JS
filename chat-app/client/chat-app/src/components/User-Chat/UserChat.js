@@ -2,7 +2,7 @@ import styles from "./UserChat.module.css";
 import ProfilePicture from "./images/pp.svg";
 
 function UserChat({ data }) {
-  const IP = "http://192.168.31.94:4000";
+  const IP = "http://192.168.52.191:4000";
   const PP_GET_API_URL = IP + "/get_image/";
 
   return (

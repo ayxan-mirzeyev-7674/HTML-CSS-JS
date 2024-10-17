@@ -1,0 +1,35 @@
+ul {
+  display: flex;
+  padding: 0;
+  width: 400px;
+}
+
+form {
+  width: 500px;
+}
+
+ul li:not(:last-child) {
+  margin: 0;
+  border-right: 1px solid black;
+  padding-right: 20px;
+}
+
+ul li:not(:first-child) {
+  padding-left: 20px;
+}
+
+.secondLabel {
+  margin-bottom: 0;
+  display: block;
+}
+
+.buttonDiv {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: rgb(55, 233, 55);
+}

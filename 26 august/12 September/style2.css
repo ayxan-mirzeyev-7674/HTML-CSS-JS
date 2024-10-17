@@ -1,0 +1,43 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+li {
+  user-select: none;
+  position: relative;
+}
+
+li:first-child {
+  color: teal;
+}
+
+li:nth-child(2) {
+  color: red;
+}
+
+li:last-child {
+  color: green;
+}
+
+li:hover {
+  color: purple;
+  padding-left: 10px;
+  font-size: 20px;
+  transition: 0.05s linear;
+}
+
+li::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  left: calc(-100% - 50px);
+  z-index: -1;
+  transition: 0.5s linear;
+}
+
+li:hover::before {
+  left: -50px;
+}

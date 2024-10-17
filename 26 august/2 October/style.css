@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+button {
+  padding: 16px;
+  border: 0;
+  color: rgb(102, 102, 102);
+  background-color: rgb(225, 225, 225);
+  font-size: 17px;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 98;
+}
+
+button span {
+  z-index: 100;
+  position: relative;
+  transition: 0.3s;
+}
+
+button:hover span {
+  color: white;
+}
+
+.right::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: -100%;
+  top: 0;
+  background-color: rgb(98, 98, 197);
+  transition: 0.3s;
+  z-index: 99;
+}
+
+.right:hover::before {
+  left: 0;
+}
+
+.left::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  right: -100%;
+  top: 0;
+  background-color: rgb(98, 98, 197);
+  transition: 0.3s;
+  z-index: 99;
+}
+
+.left:hover::before {
+  right: 0;
+}
+
+.bottom::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -100%;
+  background-color: rgb(98, 98, 197);
+  transition: 0.3s;
+  z-index: 99;
+}
+
+.bottom:hover::before {
+  top: 0;
+}
+
+.top::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  background-color: rgb(98, 98, 197);
+  transition: 0.3s;
+  z-index: 99;
+}
+
+.top:hover::before {
+  bottom: 0;
+}

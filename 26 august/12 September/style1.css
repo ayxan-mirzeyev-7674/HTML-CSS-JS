@@ -1,0 +1,19 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background-color: lightgrey;
+}
+
+td {
+  text-align: center;
+}
+
+tr {
+  border-bottom: 1px solid #b0a160;
+}

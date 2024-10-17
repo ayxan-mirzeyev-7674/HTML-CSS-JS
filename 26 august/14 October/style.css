@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+button {
+  padding: 16px;
+  border: 0;
+  color: rgb(102, 102, 102);
+  background-color: rgb(225, 225, 225);
+  font-size: 17px;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 98;
+}
+
+.ul-right::before {
+  content: "";
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  left: -100%;
+  bottom: 0;
+  background-color: rgb(98, 98, 197);
+  transition: 0.3s;
+  z-index: 99;
+}
+
+.ul-right:hover::before {
+  left: 0;
+}
+
+.ul-left::before {
+  content: "";
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  right: -100%;
+  bottom: 0;
+  background-color: rgb(98, 98, 197);
+  transition: 0.3s;
+  z-index: 99;
+}
+
+.ul-left:hover::before {
+  right: 0;
+}
+
+.ul-center::before {
+  content: "";
+  height: 5px;
+  width: 0%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  background-color: rgb(98, 98, 197);
+  transition: 0.3s;
+  z-index: 99;
+}
+
+.ul-center:hover::before {
+  width: 100%;
+}
+
+.ol-right::before {
+  content: "";
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  left: -100%;
+  top: 0;
+  background-color: rgb(98, 98, 197);
+  transition: 0.3s;
+  z-index: 99;
+}
+
+.ol-right:hover::before {
+  left: 0;
+}
+
+.ol-left::before {
+  content: "";
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  right: -100%;
+  top: 0;
+  background-color: rgb(98, 98, 197);
+  transition: 0.3s;
+  z-index: 99;
+}
+
+.ol-left:hover::before {
+  right: 0;
+}
+
+.ol-center::before {
+  content: "";
+  height: 5px;
+  width: 0%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  background-color: rgb(98, 98, 197);
+  transition: 0.3s;
+  z-index: 99;
+}
+
+.ol-center:hover::before {
+  width: 100%;
+}
+
+.icon-back i {
+  position: relative;
+  right: 0;
+  transition: 0.1s linear;
+}
+
+.icon-back:hover i {
+  right: 5px;
+}
+
+.icon-forward i {
+  position: relative;
+  left: 0;
+  transition: 0.1s linear;
+}
+
+.icon-forward:hover i {
+  left: 5px;
+}

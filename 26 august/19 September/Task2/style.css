@@ -1,0 +1,37 @@
+body {
+  font-family: "Montserrat";
+}
+
+.divs {
+  width: 600px;
+  background-color: white;
+}
+
+.divs div {
+  padding: 30px 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.divs div:nth-child(1) {
+  background-color: #ff0000;
+  width: 100%;
+  color: white;
+}
+.divs div:nth-child(2) {
+  background-color: lightblue;
+  width: 90%;
+}
+.divs div:nth-child(3) {
+  background-color: cornsilk;
+  width: 80%;
+}
+.divs div:nth-child(4) {
+  background-color: cyan;
+  width: 70%;
+}
+.divs div:nth-child(5) {
+  background-color: black;
+  width: 60%;
+  color: white;
+}
